@@ -298,6 +298,35 @@ select:invalid {
   }
 }
 
+// reviews marquee
+.reviews-marquee {
+  overflow: hidden;
+}
+
+.reviews-marquee .marquee-track {
+  display: flex;
+  gap: 1.75rem;
+  will-change: transform;
+  animation: reviews-marquee-scroll 30s linear infinite;
+}
+
+.reviews-marquee .marquee-track > * {
+  flex: 0 0 auto;
+}
+
+.reviews-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes reviews-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 //services
 .services {
   .tab-nav {
