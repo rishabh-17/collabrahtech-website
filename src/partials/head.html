@@ -1,0 +1,197 @@
+<head>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/img/logo.png" />
+  <!-- theme meta -->
+  <meta name="theme-name" content="Pinwheel" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: light)"
+    content="#fff"
+  />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: dark)"
+    content="#000"
+  />
+  <meta name="generator" content="gulp" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!-- responsive meta -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=5"
+  />
+
+  <!-- title -->
+  <title>Collabrah Tech</title>
+
+  <!-- noindex robots -->
+  <meta name="robots" content="index,follow" />
+
+  <!-- meta-description -->
+  <meta
+    name="description"
+    content="Collabrah Tech — AI automation, ERP tools, recruitment innovation, and custom software development."
+  />
+  <!-- keywords -->
+  <meta
+    name="keywords"
+    content="AI automation, ERP tools, recruitment innovation, custom software development"
+  />
+  <!-- canonical -->
+  <link rel="canonical" href="/" />
+
+  <!-- author from config.json -->
+  <meta name="author" content="{config.metadata.meta_author}" />
+
+  <!-- og-title -->
+  <meta property="og:title" content="" />
+
+  <!-- og-description -->
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+
+  <!-- twitter-title -->
+  <meta name="twitter:title" content="" />
+
+  <!-- twitter-description -->
+  <meta name="twitter:description" content="" />
+
+  <!-- og-image -->
+  <meta property="og:image" content="" />
+
+  <!-- twitter-image -->
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- google font css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=<%= fontPrimary %>&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=<%= fontSecondary %>&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- styles -->
+
+  <!-- Swiper slider -->
+  <link rel="stylesheet" href="plugins/swiper/swiper-bundle.css" />
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="plugins/font-awesome/v6/brands.css" />
+  <link rel="stylesheet" href="plugins/font-awesome/v6/solid.css" />
+  <link rel="stylesheet" href="plugins/font-awesome/v6/fontawesome.css" />
+
+  <!-- Main Stylesheet -->
+  <link href="styles/main.css" rel="stylesheet" />
+
+  <!-- Inline per-page SEO mapping -->
+  <script>
+    (function () {
+      var path = (location.pathname || "/").toLowerCase();
+      var seo = {
+        "/index.html": {
+          title: "AI Automation | Collabrah Tech",
+          description:
+            "Automate workflows with AI, RPA, and custom integrations to scale efficiently.",
+          keywords:
+            "AI automation, RPA, LLM, workflows, integrations, Collabrah Tech",
+        },
+        "/managedservices.html": {
+          title: "ERP Tools | Collabrah Tech",
+          description:
+            "Optimize ERP processes with integrations, automation, dashboards, and connectors.",
+          keywords:
+            "ERP tools, SAP, Oracle, Odoo, integration, automation, dashboards",
+        },
+        "/executivesearch.html": {
+          title: "Recruitment Innovation | Collabrah Tech",
+          description:
+            "AI-assisted sourcing and executive search to hire top talent faster.",
+          keywords:
+            "recruitment innovation, executive search, talent acquisition, AI sourcing",
+        },
+        "/softwaresolutions.html": {
+          title: "Custom Software Development | Collabrah Tech",
+          description:
+            "Design and build secure, scalable web apps, APIs, and automation.",
+          keywords:
+            "custom software, web apps, APIs, cloud, automation, development",
+        },
+      };
+
+      if (path === "/" || path === "/theme/" || path === "/index") {
+        path = "/index.html";
+      }
+
+      var cfg = seo[path];
+      var doc = document;
+
+      function setMeta(name, content) {
+        var el = doc.querySelector('meta[name="' + name + '"]');
+        if (!el) {
+          el = doc.createElement("meta");
+          el.setAttribute("name", name);
+          doc.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+
+      function setOg(property, content) {
+        var el = doc.querySelector('meta[property="' + property + '"]');
+        if (!el) {
+          el = doc.createElement("meta");
+          el.setAttribute("property", property);
+          doc.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+
+      function setTwitter(name, content) {
+        var el = doc.querySelector('meta[name="' + name + '"]');
+        if (!el) {
+          el = doc.createElement("meta");
+          el.setAttribute("name", name);
+          doc.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+
+      var canonicalHref = location.origin + location.pathname;
+
+      // Always set robots index
+      setMeta("robots", "index,follow");
+
+      // If page in mapping, update tags
+      if (cfg) {
+        doc.title = cfg.title;
+        setMeta("description", cfg.description);
+        setMeta("keywords", cfg.keywords);
+
+        setOg("og:title", cfg.title);
+        setOg("og:description", cfg.description);
+        setOg("og:type", "website");
+        setOg("og:url", canonicalHref);
+
+        setTwitter("twitter:title", cfg.title);
+        setTwitter("twitter:description", cfg.description);
+      }
+
+      // canonical link
+      var linkCanonical = doc.querySelector('link[rel="canonical"]');
+      if (!linkCanonical) {
+        linkCanonical = doc.createElement("link");
+        linkCanonical.setAttribute("rel", "canonical");
+        doc.head.appendChild(linkCanonical);
+      }
+      linkCanonical.setAttribute("href", canonicalHref);
+    })();
+  </script>
+</head>
