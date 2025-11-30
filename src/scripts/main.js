@@ -20,6 +20,40 @@
     }
   });
 
+  // active nav underline based on current page
+  (function setActiveNav() {
+    const path = window.location.pathname;
+    let file = path.substring(path.lastIndexOf("/") + 1);
+    if (!file || file === "") file = "index.html";
+
+    const navLinks = document.querySelectorAll(".navbar .nav-link");
+    navLinks.forEach((el) => el.classList.remove("active"));
+
+    const direct = document.querySelector(`.navbar .nav-link[href="${file}"]`);
+    if (direct) {
+      direct.classList.add("active");
+      return;
+    }
+
+    const serviceFiles = [
+      "permanentStaffing.html",
+      "contractStaffing.html",
+      "ExecutiveSearch.html",
+      "specialtyStaffing.html",
+      "ManagedServices.html",
+      "softwareSolutions.html",
+      "ERPTools.html",
+      "Recruitment.html",
+    ];
+
+    if (serviceFiles.includes(file)) {
+      const serviceTop = document.querySelector(
+        ".nav-item.nav-dropdown > .nav-link"
+      );
+      if (serviceTop) serviceTop.classList.add("active");
+    }
+  })();
+
   //reviews-carousel
   new Swiper(".reviews-carousel", {
     loop: true,
